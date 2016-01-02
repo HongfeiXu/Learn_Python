@@ -36,3 +36,8 @@ def print_first_and_last(sentence):
     print_first_word(words)
     print_last_word(words)
 
+def print_first_and_last_sorted(sentence):
+    """Sorts the words int the sentence then print the first and last one."""
+    words = sort_sentence(sentence)
+    print_first_word(words)
+    print_last_word(words)
