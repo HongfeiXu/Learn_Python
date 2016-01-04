@@ -1,19 +1,24 @@
+#coding=utf-8
 from sys import exit
+from os import system
+
+system("clear")
 
 def gold_room():
     print "This room is full of gold. How much do you take?"
 
-    choice = raw_input("> ")
-    if "0" in choice or "1" in choice:      # what's that mean?
-        how_much = int(choice)
-    else:
-        dead("Man, learn to type a number.")
-    
-    if how_much < 50:                 
-        print "Nice, you're not greedy, you win!"
-        exit(0)
-    else:
-        dead("You greedy bastard!")
+    how_much = raw_input("Enter a num\n> ")
+
+    try:
+        how_much = int(how_much)
+        if how_much < 50:                 
+            print "Nice, you're not greedy, you win!"
+            exit(0)
+        else: 
+            dead("You greedy bastard!")
+    except ValueError:
+        print "Please enter a num, not sting or others!"
+        gold_room()
 
 
 def bear_room():
@@ -48,7 +53,7 @@ def cthulhu_room():
 
     choice = raw_input("> ")
 
-    if "flee" in choice:
+    if "flee" in choice:            # we can use 'in' that way NICE
         start()
     elif "head" in choice:
         dead("Well that was tasty!")
@@ -83,4 +88,3 @@ def start():
 
 
 start()
-
